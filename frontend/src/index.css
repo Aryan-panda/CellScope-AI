@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ───────────────────────────────────────────
+   CSS Custom Properties
+─────────────────────────────────────────── */
+:root {
+  --color-canvas: #0B1120;
+  --color-teal: #2DD4BF;
+  --color-blue: #60A5FA;
+}
+
+/* ───────────────────────────────────────────
+   Base Body
+─────────────────────────────────────────── */
+body {
+  background-color: #0B1120;
+  color: #F1F5F9;
+  font-family: 'Inter', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ───────────────────────────────────────────
+   Custom Scrollbar (WebKit)
+─────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #182438;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #29364A;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a4f6a;
+}
+
+::-webkit-scrollbar-corner {
+  background: #182438;
+}
+
+/* ───────────────────────────────────────────
+   Glow Utilities
+─────────────────────────────────────────── */
+.glow-teal {
+  box-shadow: 0 0 20px rgba(45, 212, 191, 0.3);
+}
+
+.glow-blue {
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.3);
+}
+
+/* ───────────────────────────────────────────
+   Slow Pulse Animation
+─────────────────────────────────────────── */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 1;
+    box-shadow: 0 0 10px rgba(45, 212, 191, 0.2);
+  }
+  50% {
+    opacity: 0.75;
+    box-shadow: 0 0 25px rgba(45, 212, 191, 0.5);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+/* ───────────────────────────────────────────
+   Additional utility overrides
+─────────────────────────────────────────── */
+* {
+  box-sizing: border-box;
+}

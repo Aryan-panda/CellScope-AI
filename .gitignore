@@ -1,0 +1,134 @@
+# ==============================================================================
+# CellScope AI — Production .gitignore
+# ==============================================================================
+
+# ------------------------------------------------------------------------------
+# 1. Agent Governance & Audit Logs (Internal AI Tooling)
+# ------------------------------------------------------------------------------
+AGENT.md
+TRACE.md
+.agent/
+.gemini/
+.antigravity/
+
+# ------------------------------------------------------------------------------
+# 2. Datasets & Heavy Microscopy Data (Kaggle DSB2018)
+# ------------------------------------------------------------------------------
+# Exclude raw training/testing datasets to keep git repo lightweight and pushable
+data/
+backend/data/
+**/stage1_train/
+**/stage1_test/
+*.zip
+*.tar.gz
+*.tar
+*.7z
+*.rar
+*.tif
+*.tiff
+
+# ------------------------------------------------------------------------------
+# 3. Model Weights & Training Outputs
+# ------------------------------------------------------------------------------
+# Ignore runtime and user generated outputs
+backend/outputs/user_image_mask.png
+backend/outputs/*.tmp
+backend/outputs/*.log
+*.ckpt
+*.onnx
+
+# Note: backend/outputs/best_model.pt (31MB) is preserved for out-of-the-box inference.
+# If using Git LFS or external model storage (e.g. S3 / Hugging Face), uncomment below:
+# backend/outputs/best_model.pt
+
+# ------------------------------------------------------------------------------
+# 4. Python & Virtual Environments
+# ------------------------------------------------------------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+backend/venv/
+backend/.venv/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.mypy_cache/
+
+# ------------------------------------------------------------------------------
+# 5. Node.js & Frontend Artifacts
+# ------------------------------------------------------------------------------
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
+frontend/.vite/
+*.local
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# ------------------------------------------------------------------------------
+# 6. Environment Variables, Configs & Secrets
+# ------------------------------------------------------------------------------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+*.pem
+*.key
+
+# ------------------------------------------------------------------------------
+# 7. IDE, Editor & OS System Files
+# ------------------------------------------------------------------------------
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+# Operating System files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Scratch & Temporary Folders
+scratch/
+tmp/
+temp/
