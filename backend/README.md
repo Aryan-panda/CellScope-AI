@@ -13,6 +13,16 @@ FastAPI-powered biomedical image segmentation and uncertainty quantification ser
 - **`src/instance_segmentation.py`**: Marker-controlled distance-transform watershed, connected components analysis, and morphological profiling.
 - **`src/uncertainty_analysis.py`**: Pixel-wise binary Shannon entropy $H(p)$, uncertainty statistics, and publication-ready heatmap renderers.
 - **`outputs/best_model.pt`**: Pre-trained model weights (88.47% validation Dice on the DSB2018 benchmark).
+- **`tests/`**: Automated verification test suite:
+  - `test_instance_segmentation.py`: Watershed, CCA, edge-cases (blank images, solitary cells), morphological profiling, and exports.
+  - `test_uncertainty_pipeline.py`: Shannon entropy limits, uncertainty stratification statistics, colormapping, and overlays.
+  - `test_api_endpoints.py`: Integration testing of FastAPI endpoints and validation error handling.
+
+## Running Tests
+
+```bash
+pytest tests/ -v -s
+```
 
 ## Manual Start
 

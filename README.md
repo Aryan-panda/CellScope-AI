@@ -95,6 +95,11 @@ CellScope AI/
 │   │   ├── isolated.png         # Separated nucleus preset
 │   │   ├── high_density.png     # Dense monolayer preset
 │   │   └── README.md            # Preset documentation
+│   ├── tests/                   # Automated test verification suite
+│   │   ├── __init__.py          # Test package identifier
+│   │   ├── test_instance_segmentation.py # Watershed & morphological tests
+│   │   ├── test_uncertainty_pipeline.py  # Shannon entropy & heatmap tests
+│   │   └── test_api_endpoints.py         # FastAPI endpoint & validation tests
 │   └── src/
 │       ├── model.py             # 4-stage U-Net PyTorch architecture
 │       ├── instance_segmentation.py # Watershed, CCA & morphological profiling
@@ -127,9 +132,11 @@ CellScope AI/
     ├── run_all.bat              # Windows: Launches both Backend and Frontend concurrently
     ├── start_backend.bat        # Windows: Initializes venv, installs deps, runs FastAPI (:8000)
     ├── start_frontend.bat       # Windows: Installs npm packages, runs Vite (:5173)
+    ├── run_tests.bat            # Windows: Runs automated pytest verification suite
     ├── run_all.sh               # Linux/macOS: Launches both Backend and Frontend concurrently
     ├── start_backend.sh         # Linux/macOS: Initializes venv, runs FastAPI (:8000)
-    └── start_frontend.sh        # Linux/macOS: Installs npm packages, runs Vite (:5173)
+    ├── start_frontend.sh        # Linux/macOS: Installs npm packages, runs Vite (:5173)
+    └── run_tests.sh             # Linux/macOS: Runs automated pytest verification suite
 ```
 
 ---
@@ -219,6 +226,24 @@ npm run dev
 > 🌐 **Access Application:**
 > Open your browser and navigate to:
 > **`http://localhost:5173`**
+
+---
+
+## 🧪 Automated Testing Suite
+
+CellScope AI includes a verification test suite under `backend/tests/` covering instance segmentation algorithms, edge-cases (e.g. blank canvases and solitary cells), Shannon entropy mathematical limits, colormapping, and FastAPI endpoint contracts.
+
+### Running Tests via Scripts:
+- **Windows:** Double click or run `scripts\run_tests.bat`
+- **Linux / macOS:** Run `./scripts/run_tests.sh`
+
+### Running Tests via Pytest (Manual):
+```bash
+cd "backend"
+# Activate your venv if not already active
+# Windows: venv\Scripts\activate | Linux: source venv/bin/activate
+pytest tests/ -v -s
+```
 
 ---
 
