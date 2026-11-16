@@ -31,7 +31,6 @@ backend/data/
 # 3. Model Weights & Training Outputs
 # ------------------------------------------------------------------------------
 # Ignore runtime and user generated outputs
-backend/outputs/user_image_mask.png
 backend/outputs/*.tmp
 backend/outputs/*.log
 *.ckpt
